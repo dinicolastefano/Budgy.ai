@@ -1,51 +1,44 @@
-# Copyright (c) Streamlit Inc. (2018-2022) Snowflake Inc. (2022)
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
+# Import necessary libraries
 import streamlit as st
-from streamlit.logger import get_logger
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-LOGGER = get_logger(__name__)
+# Title of our app
+st.title("Data Display with Streamlit")
 
+# Creating a sample DataFrame
+data = {
+    "A": np.random.randn(50),
+    "B": np.random.randn(50),
+    "C": np.random.randn(50)
+}
+df = pd.DataFrame(data)
 
-def run():
-    st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
-    )
+# Displaying a table with Streamlit
+st.header("Displaying Tables in Streamlit")
+st.table(df.head(25))
 
-    st.write("# Welcome to my fucking Streamlit! 👋")
+# Displaying a DataFrame with Streamlit (more interactive than table)
+st.header("Displaying DataFrames in Streamlit")
+st.write(df.head(25))
 
-    st.sidebar.success("Select a demo above.")
-
-    st.markdown(
-        """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
-        **👈 Select a demo from the sidebar** to see some examples
-        of what Streamlit can do!
-        ### Want to learn more?
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """
-    )
+# Using line_chart to visualize the data
+st.header("Using Built-in Line Chart")
+st.bar_chart(df)
 
 
-if __name__ == "__main__":
-    run()
+# Using Matplotlib and Seaborn for custom visualizations
+st.header("Custom Visualizations with Matplotlib and Seaborn")
+
+# Creating a correlation heatmap using seaborn
+plt.figure(figsize=(8,6))
+sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
+st.pyplot(plt)
+
+# Displaying dynamic content
+st.header("Dynamic Content: Markdown, Images, and Videos")
+st.markdown("This is **Markdown** in action in Streamlit!")
+st.image("https://www.streamlit.io/images/brand/streamlit-mark-color.png", caption="Streamlit Logo", use_column_width=True)
+st.video("https://www.youtube.com/watch?v=yJEUOZC8FKY&ab_channel=carwow")
