@@ -2,7 +2,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import seaborn as sns
 
 # Title of our app
 st.title("Data Display with Streamlit")
@@ -26,11 +25,6 @@ st.write(df.head(25))
 # Using line_chart to visualize the data
 st.header("Using Built-in Line Chart")
 st.bar_chart(df)
-
-# Creating a correlation heatmap using seaborn
-plt.figure(figsize=(8,6))
-sns.heatmap(df.corr(), annot=True, cmap='coolwarm')
-st.pyplot(plt)
 
 # Displaying dynamic content
 st.header("Dynamic Content: Markdown, Images, and Videos")
