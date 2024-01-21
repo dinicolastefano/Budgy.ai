@@ -4,10 +4,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-
-import streamlit as st
-from streamlit_login_auth_ui.widgets import __login__
-
 __login__obj = __login__(auth_token = "dk_prod_K8YBMNYHJ2MNFVKKKYSCJ7V7A97Z", 
                     company_name = "Shims",
                     width = 200, height = 250, 
