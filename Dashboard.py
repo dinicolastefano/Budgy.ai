@@ -1,10 +1,9 @@
 
 # Import necessary libraries
+from st_on_hover_tabs import on_hover_tabs
 import streamlit as st
 import pandas as pd
 import numpy as np
-import on_hover_tabs as ht
-import streamlit as st
 st.set_page_config(layout="wide")
 
 st.header("Custom tab component for on-hover navigation bar")
