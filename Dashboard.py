@@ -1,30 +1,20 @@
 
 # Import necessary libraries
-from st_on_hover_tabs import on_hover_tabs
+
 import streamlit as st
 import pandas as pd
 import numpy as np
-st.set_page_config(layout="wide")
+import streamlit_authenticator as stauth
+import yaml
+from yaml.loader import SafeLoader
 
-st.header("Custom tab component for on-hover navigation bar")
-st.markdown('<style>' + open('./style.css').read() + '</style>', unsafe_allow_html=True)
+with open('../config.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
 
-
-with st.sidebar:
-    tabs = on_hover_tabs(tabName=['Dashboard', 'Money', 'Economy'], 
-                         iconName=['dashboard', 'money', 'economy'], default_choice=0)
-
-if tabs =='Dashboard':
-    st.title("Navigation Bar")
-    st.write('Name of option is {}'.format(tabs))
-
-elif tabs == 'Money':
-    st.title("Paper")
-    st.write('Name of option is {}'.format(tabs))
-
-elif tabs == 'Economy':
-    st.title("Tom")
-    st.write('Name of option is {}'.format(tabs))
-
-# Title of our app
-st.title("Dashboard")
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)

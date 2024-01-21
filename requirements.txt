@@ -4,4 +4,3 @@ pandas
 pydeck
 streamlit
 streamlit_authenticator
-streamlit-on-Hover-tabs
