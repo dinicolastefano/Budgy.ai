@@ -4,4 +4,4 @@ import pandas as pd
 import numpy as np
 
 # Title of our app
-st.title("Data Display with Streamlit")
+st.title("Dashboard")
