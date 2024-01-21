@@ -1,5 +1,5 @@
 # Import necessary libraries
-from streamlit_login_auth_ui.widgets import __login__
+from streamlit_login_auth_ui import __login__
 import streamlit as st
 import pandas as pd
 import numpy as np
