@@ -5,3 +5,4 @@ pydeck
 streamlit
 streamlit_authenticator
 streamlit_option_menu
+streamlit-on-Hover-tabs
