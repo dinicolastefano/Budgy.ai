@@ -1,30 +1,13 @@
 # Import necessary libraries
 import streamlit as st
 import pandas as pd
+import streamlit as st
 
-from streamlit_elements import elements, mui, html, dashboard
+import streamlit as st
 
-    # First, build a default layout for every element you want to include in your dashboard
+row1 = st.columns(3)
+row2 = st.columns(3)
 
-    layout = [dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=False, moved=False, isResizable=False)]
-
-    # Next, create a dashboard layout using the 'with' syntax. It takes the layout
-    # as first parameter, plus additional properties you can find in the GitHub links below.
-
-    with dashboard.Grid(layout):
-        mui.Paper("First item", key="first_item")
-        mui.Paper("Second item (cannot drag)", key="second_item")
-        mui.Paper("Third item (cannot resize)", key="third_item")
-
-    # If you want to retrieve updated layout values as the user move or resize dashboard items,
-    # you can pass a callback to the onLayoutChange event parameter.
-
-    def handle_layout_change(updated_layout):
-        # You can save the layout in a file, or do anything you want with it.
-        # You can pass it back to dashboard.Grid() if you want to restore a saved layout.
-        print(updated_layout)
-
-    with dashboard.Grid(layout, onLayoutChange=handle_layout_change):
-        mui.Paper("First item", key="first_item")
-        mui.Paper("Second item (cannot drag)", key="second_item")
-        mui.Paper("Third item (cannot resize)", key="third_item")
+for col in row1 + row2:
+    tile = col.container(height=120)
+    tile.title(":balloon:")
