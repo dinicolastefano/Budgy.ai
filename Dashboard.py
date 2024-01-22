@@ -6,12 +6,7 @@ from streamlit_elements import elements, mui, html, dashboard
 
     # First, build a default layout for every element you want to include in your dashboard
 
-    layout = [
-        # Parameters: element_identifier, x_pos, y_pos, width, height, [item properties...]
-        dashboard.Item("first_item", 0, 0, 2, 2),
-        dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=False, moved=False),
-        dashboard.Item("third_item", 0, 2, 1, 1, isResizable=False),
-    ]
+    layout = [dashboard.Item("second_item", 2, 0, 2, 2, isDraggable=False, moved=False, isResizable=False)]
 
     # Next, create a dashboard layout using the 'with' syntax. It takes the layout
     # as first parameter, plus additional properties you can find in the GitHub links below.
