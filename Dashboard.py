@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 
-from streamlit_elements import dashboard
+from streamlit_elements import elements, mui, html, dashboard
 
     # First, build a default layout for every element you want to include in your dashboard
 
